@@ -16,7 +16,7 @@ Static site for Elling & Sons, hosted on GitHub Pages.
   site.js
   404.html
   assets/
-    mark-es.svg            # optional header mark (E&S)
+    mark-es.svg            
     favicons/              # favicon set
       favicon.ico
       favicon-16x16.png
