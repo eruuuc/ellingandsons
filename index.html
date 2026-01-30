@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Elling & Sons. Work goods, built for real use." />
+
+  <title>Elling & Sons</title>
+
+  <meta name="theme-color" content="#0b0b10" />
+
+  <!-- If you have Adobe Fonts for Bello Script Pro, include your kit here -->
+  <!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css" /> -->
+
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/site.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Elling & Sons home">
+        <!-- Optional: put your E&S mark at assets/mark-es.svg -->
+        <span class="brand-mark" aria-hidden="true">
+          <img src="/assets/mark-es.svg" alt="" onerror="this.remove();" />
+        </span>
+
+        <span class="brand-text">
+          <span class="brand-name">Elling &amp; Sons</span>
+          <span class="brand-tag">Work goods</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#goods">Goods</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          Menu
+        </button>
+      </nav>
+    </div>
+
+    <div class="container nav-panel" hidden>
+      <a href="#about">About</a>
+      <a href="#goods">Goods</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">Work goods for real use.</h1>
+          <p class="hero-subtitle">
+            Built to be used, not babied. We are setting the foundation now and will publish our first goods soon.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get updates</a>
+            <a class="btn" href="#about">What we are building</a>
+          </div>
+
+          <p class="hero-note">
+            No hype. No filler. Just the basics done right.
+          </p>
+        </div>
+
+        <div class="hero-card" role="region" aria-label="Launch focus">
+          <h2 class="card-title">Launch focus</h2>
+          <ul class="list">
+            <li>Carry and organization</li>
+            <li>Garage and jobsite utility</li>
+            <li>Hard use materials and simple design</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="card-muted">
+            If you want to be first to see prototypes and drops, join the list.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <div class="grid-2">
+          <p>
+            Elling &amp; Sons is a small brand built around practical gear. The goal is simple:
+            make things you reach for every day, and trust when it matters.
+          </p>
+          <p class="muted">
+            This site is intentionally minimal while the first product line takes shape.
+            Expect updates, prototypes, and short runs before anything goes wide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="goods" class="section alt">
+      <div class="container">
+        <h2>Goods</h2>
+        <p class="muted">Initial categories. Specific items will be published as we lock them in.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Carry</h3>
+            <p>Tool totes, modular pouches, and grab bags that hold up to daily use.</p>
+          </article>
+
+          <article class="card">
+            <h3>Organization</h3>
+            <p>Simple systems for the garage, truck, and workbench.</p>
+          </article>
+
+          <article class="card">
+            <h3>Utility</h3>
+            <p>Small goods that solve common problems without overcomplicating the design.</p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div>
+            <h3 class="callout-title">Have a product problem you want solved?</h3>
+            <p class="muted">Tell us what breaks, what is annoying, and what you wish existed.</p>
+          </div>
+          <a class="btn primary" href="#contact">Send feedback</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact and updates</h2>
+
+        <div class="grid-2">
+          <div>
+            <p>
+              Use the form to send a note, or email directly.
+            </p>
+            <p class="muted">
+              Email: <a href="mailto:hello@ellingandsons.com">hello@ellingandsons.com</a>
+            </p>
+          </div>
+
+          <form class="form" id="contactForm">
+            <label>
+              <span>Name</span>
+              <input name="name" autocomplete="name" />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+
+            <button class="btn primary" type="submit">Send</button>
+            <p class="muted tiny" id="formHint">
+              This uses your email client for now (no backend). You can add a real form later.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year"></span> Elling &amp; Sons</p>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#goods">Goods</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
