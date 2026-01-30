@@ -3,27 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Elling & Sons. Work goods, built for real use." />
+  <meta name="description" content="Elling & Sons work goods." />
 
   <title>Elling & Sons</title>
-
   <meta name="theme-color" content="#0b0b10" />
 
-  <!-- If you have Adobe Fonts for Bello Script Pro, include your kit here -->
+  <!-- Adobe Fonts -->
+  <link rel="preconnect" href="https://use.typekit.net">
   <link rel="stylesheet" href="https://use.typekit.net/uby6eoa.css">
+
+  <!-- Favicons: update paths and filenames to match your folder -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
 
   <link rel="stylesheet" href="/style.css" />
   <script src="/site.js" defer></script>
-
-  
-
-  <!-- Favicons -->
-<link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
-<link rel="manifest" href="/assets/favicons/site.webmanifest">
-
 </head>
 
 <body>
@@ -32,7 +29,6 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="/" aria-label="Elling & Sons home">
-        <!-- Optional: put your E&S mark at assets/mark-es.svg -->
         <span class="brand-mark" aria-hidden="true">
           <img src="/assets/mark-es.svg" alt="" onerror="this.remove();" />
         </span>
@@ -59,38 +55,35 @@
       <a href="#contact">Contact</a>
     </div>
   </header>
-  
+
   <main id="main">
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
+          <p class="kicker">Elling &amp; Sons</p>
           <h1 class="hero-title">Work goods for real use.</h1>
           <p class="hero-subtitle">
-            Built to be used, not babied. We are setting the foundation now and will publish our first goods soon.
+            Practical gear built around carry, organization, and utility. First releases soon.
           </p>
 
           <div class="hero-cta">
             <a class="btn primary" href="#contact">Get updates</a>
-            <a class="btn" href="#about">What we are building</a>
+            <a class="btn" href="#goods">What we are building</a>
           </div>
 
-          <p class="hero-note">
-            No hype. No filler. Just the basics done right.
+          <p class="muted tiny">
+            No fluff. Minimal site while the first goods are finalized.
           </p>
         </div>
 
-        <div class="hero-card" role="region" aria-label="Launch focus">
-          <h2 class="card-title">Launch focus</h2>
+        <aside class="hero-card" aria-label="Focus">
+          <h2 class="card-title">Focus</h2>
           <ul class="list">
-            <li>Carry and organization</li>
-            <li>Garage and jobsite utility</li>
-            <li>Hard use materials and simple design</li>
+            <li>Carry systems</li>
+            <li>Garage and truck organization</li>
+            <li>Hard use materials</li>
           </ul>
-          <div class="divider"></div>
-          <p class="card-muted">
-            If you want to be first to see prototypes and drops, join the list.
-          </p>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -99,12 +92,10 @@
         <h2>About</h2>
         <div class="grid-2">
           <p>
-            Elling &amp; Sons is a small brand built around practical gear. The goal is simple:
-            make things you reach for every day, and trust when it matters.
+            Elling &amp; Sons is new. The goal is straightforward: build useful gear that holds up.
           </p>
           <p class="muted">
-            This site is intentionally minimal while the first product line takes shape.
-            Expect updates, prototypes, and short runs before anything goes wide.
+            Updates, prototypes, and small runs will show up here first.
           </p>
         </div>
       </div>
@@ -113,47 +104,36 @@
     <section id="goods" class="section alt">
       <div class="container">
         <h2>Goods</h2>
-        <p class="muted">Initial categories. Specific items will be published as we lock them in.</p>
+        <p class="muted">Starting categories. Specific items will appear as they are locked in.</p>
 
         <div class="cards">
           <article class="card">
             <h3>Carry</h3>
-            <p>Tool totes, modular pouches, and grab bags that hold up to daily use.</p>
+            <p>Tool totes, modular pouches, grab bags.</p>
           </article>
 
           <article class="card">
             <h3>Organization</h3>
-            <p>Simple systems for the garage, truck, and workbench.</p>
+            <p>Simple systems for the garage, truck, and bench.</p>
           </article>
 
           <article class="card">
             <h3>Utility</h3>
-            <p>Small goods that solve common problems without overcomplicating the design.</p>
+            <p>Small goods that solve common problems.</p>
           </article>
-        </div>
-
-        <div class="callout">
-          <div>
-            <h3 class="callout-title">Have a product problem you want solved?</h3>
-            <p class="muted">Tell us what breaks, what is annoying, and what you wish existed.</p>
-          </div>
-          <a class="btn primary" href="#contact">Send feedback</a>
         </div>
       </div>
     </section>
 
     <section id="contact" class="section">
       <div class="container">
-        <h2>Contact and updates</h2>
+        <h2>Contact</h2>
 
         <div class="grid-2">
           <div>
-            <p>
-              Use the form to send a note, or email directly.
-            </p>
-            <p class="muted">
-              Email: <a href="mailto:hello@ellingandsons.com">hello@ellingandsons.com</a>
-            </p>
+            <p class="muted">Email:</p>
+            <p><a href="mailto:hello@ellingandsons.com">hello@ellingandsons.com</a></p>
+            <p class="muted tiny">Form uses your email client for now.</p>
           </div>
 
           <form class="form" id="contactForm">
@@ -173,9 +153,6 @@
             </label>
 
             <button class="btn primary" type="submit">Send</button>
-            <p class="muted tiny" id="formHint">
-              This uses your email client for now (no backend). You can add a real form later.
-            </p>
           </form>
         </div>
       </div>
@@ -194,3 +171,4 @@
   </footer>
 </body>
 </html>
+
