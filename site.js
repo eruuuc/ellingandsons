@@ -2,13 +2,13 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // Mobile nav toggle
   const toggle = document.querySelector(".nav-toggle");
   const panel = document.querySelector(".nav-panel");
+
   if (toggle && panel) {
     toggle.addEventListener("click", () => {
-      const open = panel.hasAttribute("hidden") === false;
-      if (open) {
+      const isOpen = !panel.hasAttribute("hidden");
+      if (isOpen) {
         panel.setAttribute("hidden", "");
         toggle.setAttribute("aria-expanded", "false");
       } else {
@@ -25,16 +25,15 @@
     });
   }
 
-  // Contact form uses mailto to avoid backend
   const form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const data = new FormData(form);
-      const name = (data.get("name") || "").toString().trim();
-      const email = (data.get("email") || "").toString().trim();
-      const message = (data.get("message") || "").toString().trim();
+      const name = String(data.get("name") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const message = String(data.get("message") || "").trim();
 
       const subject = encodeURIComponent("Elling & Sons inquiry");
       const body = encodeURIComponent(
