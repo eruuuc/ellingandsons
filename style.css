@@ -18,8 +18,24 @@
   --btnAlt:transparent;
 
   /* Bello Script Pro fallback stack */
-  --script: "Bello Script Pro", "Bello Script", "Brush Script MT", cursive;
-  --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+ --logo: "bello-pro", system-ui, sans-serif;
+  --caps: "bello-caps", system-ui, sans-serif;
+
+  --body: "parisine-std", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --head: "parisine-std-compress", "parisine-std-narrow", "parisine-std", system-ui, sans-serif;
+}
+
+body{ font-family: var(--body); }
+.brand-name{ font-family: var(--logo); }
+
+h1,h2,h3{ font-family: var(--head); }
+
+.brand-tag,
+label span,
+.kicker{
+  font-family: var(--caps);
+  letter-spacing: .10em;
+  text-transform: uppercase;
 }
 
 *{ box-sizing:border-box; }
