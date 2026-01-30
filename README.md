@@ -28,7 +28,7 @@ Static site for Elling & Sons, hosted on GitHub Pages.
 
 ## License
 
-© Sector3 Racing  
+© Elling & Sons 
 All rights reserved.
 
 This repository and its contents may not be copied, redistributed, or reused without prior written permission.
