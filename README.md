@@ -9,7 +9,7 @@ Static site for Elling & Sons, hosted on GitHub Pages.
 - Favicons included (already generated)
 
 ## Repo structure
-
+```txt
 
   index.html
   style.css
@@ -24,8 +24,8 @@ Static site for Elling & Sons, hosted on GitHub Pages.
       apple-touch-icon.png
       site.webmanifest
       (optional) safari-pinned-tab.svg
+  ```
 
-      
 ## License
 
 © Sector3 Racing  
