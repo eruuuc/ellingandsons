@@ -1,174 +1,430 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Elling & Sons work goods." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elling & Sons — In the Works</title>
+<meta name="description" content="Elling & Sons. Something is being built. Leave your email and we'll let you know when the doors open.">
 
-  <title>Elling & Sons</title>
-  <meta name="theme-color" content="#0b0b10" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Adobe Fonts -->
-  <link rel="preconnect" href="https://use.typekit.net">
-  <link rel="stylesheet" href="https://use.typekit.net/uby6eoa.css">
+<style>
+  :root{
+    --bg: #14100d;
+    --bg-2: #1c1510;
+    --panel: rgba(29, 22, 16, 0.55);
+    --panel-border: rgba(201,144,63,0.18);
+    --amber: #c9903f;
+    --amber-bright: #e0aa5e;
+    --amber-dim: #8a6431;
+    --cream: #f1e7d8;
+    --muted: #a89a8a;
+    --muted-dim: #6b5f52;
+  }
 
-  <!-- Favicons: update paths and filenames to match your folder -->
-  <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
-  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  *{ box-sizing: border-box; }
 
-  <link rel="stylesheet" href="/style.css" />
-  <script src="/site.js" defer></script>
+  html{ scroll-behavior: smooth; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ---- ambient backdrop, no image dependency ---- */
+  .backdrop{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(224,170,94,0.16) 0%, rgba(224,170,94,0) 38%),
+      radial-gradient(circle at 82% 78%, rgba(201,144,63,0.10) 0%, rgba(201,144,63,0) 45%),
+      linear-gradient(160deg, #17110c 0%, #1c150f 45%, #120e0a 100%);
+  }
+
+  .backdrop::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hero{
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8vh 5vw;
+  }
+
+  /* ---- glass card ---- */
+  .card{
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    padding: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  }
+
+  .eyebrow{
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .eyebrow::before{
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    margin-right: 0.6em;
+    vertical-align: middle;
+    box-shadow: 0 0 8px 2px rgba(201,144,63,0.7);
+  }
+
+  h1{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 8vw, 4.6rem);
+    letter-spacing: 0.01em;
+    line-height: 0.94;
+    margin: 0 0 1.3rem 0;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  h1 span{ color: var(--amber); }
+
+  .sub{
+    max-width: 440px;
+    margin: 0 auto 2.2rem auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ---- countdown ---- */
+  .countdown{
+    display: flex;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: 0 0 2.4rem 0;
+  }
+
+  .countdown .unit{
+    min-width: 64px;
+  }
+
+  .countdown .num{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    color: var(--amber-bright);
+    line-height: 1;
+  }
+
+  .countdown .label{
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-dim);
+  }
+
+  /* ---- signup form ---- */
+  form{
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  input[type="email"]{
+    flex: 1;
+    background: rgba(20,16,13,0.6);
+    border: 1px solid #382c1e;
+    border-radius: 6px;
+    padding: 0.85rem 1.05rem;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  input[type="email"]::placeholder{ color: var(--muted-dim); }
+  input[type="email"]:focus{ border-color: var(--amber); }
+  input[type="email"]:focus-visible{ outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  button{
+    background: var(--amber);
+    color: #1a1309;
+    border: none;
+    border-radius: 6px;
+    padding: 0.85rem 1.3rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+
+  button:hover{ background: var(--amber-bright); }
+  button:focus-visible{ outline: 2px solid var(--cream); outline-offset: 2px; }
+  button:active{ transform: scale(0.98); }
+
+  .status{
+    min-height: 1.3rem;
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+    color: var(--amber);
+  }
+
+  .card-footer{
+    margin-top: 2.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(201,144,63,0.14);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .card-footer a{
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-footer a:hover{ color: var(--amber); border-color: var(--amber-dim); }
+
+  /* ---- scroll cue ---- */
+  .scroll-cue{
+    position: absolute;
+    bottom: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted-dim);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    animation: bob 2.4s ease-in-out infinite;
+  }
+
+  @keyframes bob{
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 6px); }
+  }
+
+  /* ---- more-content section (populate when ready) ---- */
+  .more{
+    position: relative;
+    z-index: 1;
+    padding: 10vh 6vw 12vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .more h2{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    color: var(--cream);
+    margin: 0 0 2.5rem 0;
+    text-align: center;
+  }
+
+  .more-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+
+  .more-grid .block h3{
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0 0 0.6rem 0;
+  }
+
+  .more-grid .block p{
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .contact-line{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .contact-line a{
+    color: var(--amber);
+    text-decoration: none;
+    border-bottom: 1px solid var(--amber-dim);
+  }
+
+  .contact-line a:hover{ color: var(--amber-bright); }
+
+  @media (max-width: 480px){
+    form{ flex-direction: column; }
+    button{ width: 100%; }
+    .countdown{ gap: 0.5rem; }
+    .countdown .unit{ min-width: 52px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue{ animation: none; }
+  }
+
+  /* hide helpers driven by JS config */
+  body[data-countdown="false"] .countdown{ display: none; }
+  body[data-more="false"] .scroll-cue,
+  body[data-more="false"] .more{ display: none; }
+</style>
 </head>
+<body data-countdown="true" data-more="false">
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<div class="backdrop" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Elling & Sons home">
-        <span class="brand-mark" aria-hidden="true">
-          <img src="/assets/mark-es.svg" alt="" onerror="this.remove();" />
-        </span>
+<section class="hero" id="top">
+  <div class="card">
+    <p class="eyebrow">In the works</p>
+    <h1>Elling <span>&</span> Sons</h1>
+    <p class="sub">Something is being built. Leave your email and we'll let you know the moment the doors open.</p>
 
-        <span class="brand-text">
-          <span class="brand-name">Elling &amp; Sons</span>
-          <span class="brand-tag">Work goods</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#goods">Goods</a>
-        <a href="#contact">Contact</a>
-        <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-          Menu
-        </button>
-      </nav>
+    <div class="countdown" id="countdown" aria-label="Time until launch">
+      <div class="unit"><span class="num" id="cd-days">00</span><span class="label">Days</span></div>
+      <div class="unit"><span class="num" id="cd-hours">00</span><span class="label">Hrs</span></div>
+      <div class="unit"><span class="num" id="cd-mins">00</span><span class="label">Min</span></div>
+      <div class="unit"><span class="num" id="cd-secs">00</span><span class="label">Sec</span></div>
     </div>
 
-    <div class="container nav-panel" hidden>
-      <a href="#about">About</a>
-      <a href="#goods">Goods</a>
-      <a href="#contact">Contact</a>
+    <form id="notify-form">
+      <input type="email" id="notify-email" placeholder="you@email.com" required aria-label="Email address">
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="status" id="notify-status" role="status" aria-live="polite"></p>
+
+    <div class="card-footer">
+      <span id="year"></span>
+      <a href="https://instagram.com/ellingandsons" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:hello@ellingandsons.co">Get in touch</a>
     </div>
-  </header>
+  </div>
 
-  <main id="main">
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="kicker">Elling &amp; Sons</p>
-          <h1 class="hero-title">Work goods for real use.</h1>
-          <p class="hero-subtitle">
-            Practical gear built around carry, organization, and utility. First releases soon.
-          </p>
+  <a href="#more" class="scroll-cue">
+    Learn more
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M6 9l6 6 6-6"/>
+    </svg>
+  </a>
+</section>
 
-          <div class="hero-cta">
-            <a class="btn primary" href="#contact">Get updates</a>
-            <a class="btn" href="#goods">What we are building</a>
-          </div>
-
-          <p class="muted tiny">
-            No fluff. Minimal site while the first goods are finalized.
-          </p>
-        </div>
-
-        <aside class="hero-card" aria-label="Focus">
-          <h2 class="card-title">Focus</h2>
-          <ul class="list">
-            <li>Carry systems</li>
-            <li>Garage and truck organization</li>
-            <li>Hard use materials</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About</h2>
-        <div class="grid-2">
-          <p>
-            Elling &amp; Sons is new. The goal is straightforward: build useful gear that holds up.
-          </p>
-          <p class="muted">
-            Updates, prototypes, and small runs will show up here first.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="goods" class="section alt">
-      <div class="container">
-        <h2>Goods</h2>
-        <p class="muted">Starting categories. Specific items will appear as they are locked in.</p>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Carry</h3>
-            <p>Tool totes, modular pouches, grab bags.</p>
-          </article>
-
-          <article class="card">
-            <h3>Organization</h3>
-            <p>Simple systems for the garage, truck, and bench.</p>
-          </article>
-
-          <article class="card">
-            <h3>Utility</h3>
-            <p>Small goods that solve common problems.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-
-        <div class="grid-2">
-          <div>
-            <p class="muted">Email:</p>
-            <p><a href="mailto:hello@ellingandsons.com">hello@ellingandsons.com</a></p>
-            <p class="muted tiny">Form uses your email client for now.</p>
-          </div>
-
-          <form class="form" id="contactForm">
-            <label>
-              <span>Name</span>
-              <input name="name" autocomplete="name" />
-            </label>
-
-            <label>
-              <span>Email</span>
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-
-            <button class="btn primary" type="submit">Send</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="muted">© <span id="year"></span> Elling &amp; Sons</p>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#goods">Goods</a>
-        <a href="#contact">Contact</a>
-      </div>
+<!--
+  MORE-CONTENT SECTION
+  Set body[data-more="true"] once you have real copy to show here.
+  Replace the TODO blocks below with actual content — keep 2-4 blocks for the grid to read well.
+-->
+<section class="more" id="more">
+  <h2>What we're building</h2>
+  <div class="more-grid">
+    <div class="block">
+      <h3>TODO — Section title</h3>
+      <p>TODO — one or two sentences on what this block covers. Keep it short, this isn't the place for a full pitch.</p>
     </div>
-  </footer>
+    <div class="block">
+      <h3>TODO — Section title</h3>
+      <p>TODO — one or two sentences on what this block covers.</p>
+    </div>
+    <div class="block">
+      <h3>TODO — Section title</h3>
+      <p>TODO — one or two sentences on what this block covers.</p>
+    </div>
+  </div>
+  <p class="contact-line">Questions in the meantime? <a href="mailto:hello@ellingandsons.co">hello@ellingandsons.co</a></p>
+</section>
+
+<script>
+  document.getElementById('year').textContent = '© ' + new Date().getFullYear() + ' Elling & Sons';
+
+  // ---- Countdown config ----
+  // Set the real launch date here. Format: 'YYYY-MM-DDTHH:MM:SS'
+  const LAUNCH_DATE = new Date('2026-12-31T00:00:00');
+
+  function updateCountdown(){
+    const now = new Date();
+    const diff = LAUNCH_DATE - now;
+
+    if (diff <= 0){
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ---- Notify form ----
+  const form = document.getElementById('notify-form');
+  const status = document.getElementById('notify-status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = document.getElementById('notify-email').value.trim();
+    if(!email) return;
+
+    // Placeholder: wire this to your mailing list provider (Mailchimp, ConvertKit, Formspree, etc.)
+    status.textContent = "Thanks — we'll be in touch.";
+    form.reset();
+  });
+</script>
+
 </body>
 </html>
-
